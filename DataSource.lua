@@ -42,12 +42,12 @@ function DataSource:__init(config)
     self.shard_ids = {}
     local ctr = 0
     for i, v in pairs(self.all_targets) do
-        print(i)
-        print(v)
+        --print(i)
+        --print(v)
         local gross_size = v:size(1)
-        print(v:size())
-        print(v:size(1))
-        os.exit()
+        --print(v:size())
+        --print(v:size(1))
+        --os.exit()
         if gross_size >= self.bin_thresh then
             ctr = ctr + 1
             self.shard_ids[ctr] = i
