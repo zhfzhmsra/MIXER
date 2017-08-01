@@ -37,12 +37,14 @@ function DataSource:__init(config)
                                                self.dtype .. '.sources.th7'))
     self.all_targets = torch.load(paths.concat(self.root,
                                                self.dtype .. '.targets.th7'))
-    print(self.sepidx)
-    os.exit()
+
     -- gather the shard ids
     self.shard_ids = {}
     local ctr = 0
     for i, v in pairs(self.all_targets) do
+        print(i)
+        print(v)
+        os.exit()
         local gross_size = v:size(1)
         if gross_size >= self.bin_thresh then
             ctr = ctr + 1
