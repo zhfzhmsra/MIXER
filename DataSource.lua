@@ -44,13 +44,16 @@ function DataSource:__init(config)
     for i, v in pairs(self.all_targets) do
         print(i)
         print(v)
-        os.exit()
         local gross_size = v:size(1)
+        print(v:size())
+        print(v:size(1))
+        os.exit()
         if gross_size >= self.bin_thresh then
             ctr = ctr + 1
             self.shard_ids[ctr] = i
         end
     end
+
     -- create a permutation vector of the shards
     if self.dtype == 'train' then
         self.perm_vec = torch.randperm(#self.shard_ids)
