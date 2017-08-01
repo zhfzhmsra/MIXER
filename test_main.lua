@@ -1,3 +1,8 @@
+---
+--- Created by deeprec.
+--- DateTime: 8/1/17 1:42 AM
+---
+
 --
 --  Copyright (c) 2015, Facebook, Inc.
 --  All rights reserved.
@@ -18,8 +23,8 @@ require('xlua')
 require('nn')
 require('nngraph')
 
-require('cutorch')
-require('cunn')
+--require('cutorch')
+--require('cunn')
 
 paths.dofile('Trainer.lua')
 paths.dofile('Mixer.lua')
@@ -29,7 +34,7 @@ local mdls = paths.dofile('model_factory.lua')
 paths.dofile('reward_factory.lua')
 
 torch.manualSeed(1111)
-cutorch.manualSeed(1111)
+--cutorch.manualSeed(1111)
 local cmd = torch.CmdLine()
 cmd:option('-datadir', 'data', 'path to binarized training data')
 cmd:option('-lr', 0.2, 'learning rate')
@@ -47,7 +52,10 @@ cmd:option('-epoch_xent', 25,
 cmd:option('-devid', 1, 'GPU device id')
 cmd:option('-reward', 'bleu', 'reward type: bleu|rouge')
 local config = cmd:parse(arg)
-cutorch.setDevice(config.devid)
+
+
+
+--cutorch.setDevice(config.devid)
 -- building configuration hyper-parameters for Trainer, Model and Dataset.
 config.trainer = {
     bptt = config.bptt,

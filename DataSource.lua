@@ -37,6 +37,8 @@ function DataSource:__init(config)
                                                self.dtype .. '.sources.th7'))
     self.all_targets = torch.load(paths.concat(self.root,
                                                self.dtype .. '.targets.th7'))
+    print(self.sepidx)
+    os.exit()
     -- gather the shard ids
     self.shard_ids = {}
     local ctr = 0
